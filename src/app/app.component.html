@@ -16,6 +16,15 @@
     padding: 10px;
     font-size: 1.5rem;
   }
+  .error-output {
+    color: red;
+    font-size: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    text-align: center;
+    font-style: italic;
+  }
 </style>
 
 <main class="main">
@@ -24,7 +33,8 @@
     <img [src]="imgUrl" (click)="onClick($event)" alt="">
   </div>
   <div>
-    <input type = "text" [(ngModel)]="userName"> <br>
+    <input (input)="onInput($event)" [(ngModel)]="userName"> <br>
+    <span class="error-output">{{this.nameError}}</span>
   </div>
 </main>
 <router-outlet />
